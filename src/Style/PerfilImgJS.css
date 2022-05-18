@@ -1,0 +1,52 @@
+#tamFoto { 
+    width: 4.7em;
+    height: 6em;
+    object-fit: cover;
+    
+}
+#tamFoto img {
+    display: block;
+}
+@media only screen and (min-width: 412px) {
+    #tamFoto { 
+        width: 5.5em;
+        height: 8em;
+    }
+  
+  
+  }
+  
+  
+  
+  @media only screen and (min-width: 600px) {
+    #tamFoto { 
+        width: 7.5em;
+        height: 10em;
+    }
+  
+  }
+  
+  @media only screen and (min-width: 1080px) {
+    #tamFoto { 
+        width: 16.9em;
+        height: 20em;
+    }
+  
+  }
+  @media only screen and (min-width: 1920px) {
+    /* For desktop: */  
+    #tamFoto { 
+        width: 19.7em;
+        height: 22em;
+    } 
+
+  }
+  
+  @media only screen and (min-width: 2000px) {
+    /* For 2k screens: */
+    #tamFoto { 
+        width: 19.7em;
+        height: 22em;
+    } 
+  
+  }

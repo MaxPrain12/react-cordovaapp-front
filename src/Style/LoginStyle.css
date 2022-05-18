@@ -1,0 +1,19 @@
+#logoLogin {
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    
+}
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+
+  }
+@media only screen and (min-width: 768px) {
+    /* For desktop: */  
+    #logoLogin{
+        width: 10%;
+    }
+
+  }
