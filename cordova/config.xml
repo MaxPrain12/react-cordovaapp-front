@@ -9,20 +9,6 @@
     <content src="http://62.42.95.238:3000/" />
     <allow-navigation href="http://62.42.95.238:3000/*" />
     <allow-navigation href="*" />
-    <!--
-        <content src="index.html" />
-
-
-<content src="http://localhost:3000" />
-  <allow-navigation href="http://localhost:3000/*" />
-  <platform name="android">
-    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
-      <application android:usesCleartextTraffic="true" />
-    </edit-config>
-  </platform>
-
-    -->
-    
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
      <!-- app logo -->

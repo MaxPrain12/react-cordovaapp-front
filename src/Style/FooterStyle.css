@@ -45,9 +45,10 @@
 }
 
 .navigation ul {
-  display: flex;
   width: 100%;
-  justify-content: center;
+  display: flex;
+  padding-left: 0rem;
+
 }
 
 .navigation ul li {
@@ -57,7 +58,7 @@
   z-index: 1;
   width: 20%;
   height: 20%;
-  margin: 2em;
+  margin-top: 1em;
 }
 
 .navigation ul li #aStyle {
@@ -89,15 +90,10 @@
 }
 
 .navigation ul li.active #aStyle .icon {
-
-  background-color: #43C6AC;
-  border-radius: 50%;
-  border: 0.2em solid #ffffff;
-  transform: translateY(-40px);
+  opacity: 0;
 }
 
 .navigation ul li #aStyle .text {
-
   position: absolute;
   font-weight: 600;
   font-size: 0.75em;
@@ -112,8 +108,8 @@
 .navigation ul li.active #aStyle .text {
   color: #43C6AC;
   opacity: 1;
-  transform: translateY(20px);
-
+  transform: translateY(-2px);
+  
 }
 
 
@@ -140,23 +136,19 @@
 }
 
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
   /* For tablets: */
-
-}
-
-@media only screen and (min-width: 1080px) {
-  /* For 2k screens: */
-
-}
-
-@media only screen and (min-width: 1920px) {
-  /* For desktop: */
-
-}
-
-@media only screen and (min-width: 2560px) {
-  /* For 2k screens: */
-
-
+  .navigation ul li.active #aStyle .icon {
+    opacity: 1;
+    background-color: #43C6AC;
+    border-radius: 50%;
+    border: 0.2em solid #ffffff;
+    transform: translateY(-40px);
+  }
+  .navigation ul li.active #aStyle .text {
+    color: #43C6AC;
+    opacity: 1;
+    transform: translateY(20px);
+    
+  }
 }

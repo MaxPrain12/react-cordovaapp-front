@@ -28,7 +28,7 @@ class Perfil extends React.Component {
   async componentDidMount() {
     const usuarioLogued = localStorage.getItem('Id_user')
 
-    fetch('http://62.42.95.238:9648/post/follows' + '?id_user=' + usuarioLogued, {
+    fetch('http://62.42.95.238:9648/get/follows' + '?id_user=' + usuarioLogued, {
       method: 'GET',
       headers: {
         'Accept': 'application/json, text/plain, */*',

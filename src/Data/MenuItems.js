@@ -1,8 +1,9 @@
 import RegisterClass from "../Components/RegisterClass";
 import Login from "../Components/Login";
 import Perfil from "../Components/Perfil";
-import SerchUser from "../Components/SerchUser";
+import GamePublish from "../Components/GamePublish";
 import Addpublic from "../Components/Addpublic";
+import FindUser from "../Components/FindUser"
 
 export const MenuItems = [
 
@@ -26,12 +27,18 @@ export const MenuItems = [
   }, 
   {
     id: 4,
-    path: '/SerchUser',
-    title: 'SerchUser',
-    component: SerchUser,
+    path: '/GamePublish',
+    title: 'GamePublish',
+    component: GamePublish,
   },
   {
     id: 5,
+    path: '/FindUser',
+    title: 'FindUser',
+    component: FindUser,
+  },
+  {
+    id: 6,
     path: '/Addpublic',
     title: 'Addpublic',
     component: Addpublic,

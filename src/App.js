@@ -7,8 +7,6 @@ import "./Style/AppStyle.css"
 
 
 
-
-
 export function App() {
   if (localStorage.getItem('Username') !== null) {
     return (
@@ -20,7 +18,7 @@ export function App() {
               key={item.id}
               path={item.path}
               exact
-              component={item.component}
+              component={item.component} 
             />
           );
         })}

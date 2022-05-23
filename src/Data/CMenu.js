@@ -1,7 +1,6 @@
 import ConfigPerf from "../Components/ConfigPerf";
 import ChangePerfPhoto from "../Components/ChangePerfPhoto";
 
-
 export const CMenu = [
 
     {
@@ -18,5 +17,6 @@ export const CMenu = [
       component: ChangePerfPhoto,
       icon: <ion-icon name="create-outline" size='large' className='iconsegg'></ion-icon>
     }
+
 
   ];
