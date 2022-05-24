@@ -3,7 +3,9 @@ import Login from "../Components/Login";
 import Perfil from "../Components/Perfil";
 import GamePublish from "../Components/GamePublish";
 import Addpublic from "../Components/Addpublic";
-import FindUser from "../Components/FindUser"
+import FindUser from "../Components/FindUser";
+import ConfigPerf from "../Components/ConfigPerf";
+
 
 export const MenuItems = [
 
@@ -42,5 +44,12 @@ export const MenuItems = [
     path: '/Addpublic',
     title: 'Addpublic',
     component: Addpublic,
+  },
+  {
+    id: 7,
+    path: '/configperf',
+    title: 'Editar Perfil',
+    component: ConfigPerf
   }
+
 ];

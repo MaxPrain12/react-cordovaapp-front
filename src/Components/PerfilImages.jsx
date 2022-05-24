@@ -18,7 +18,7 @@ class PerfilImages extends React.Component {
     async componentDidMount() {
         const usuarioLogued = localStorage.getItem('Id_user')
 
-        fetch('http://62.42.95.238:9648/get/userpublicimg'+'?id_user='+usuarioLogued, {
+        fetch('http://62.42.95.238:9648/get/userpublicimg' + '?id_user=' + usuarioLogued, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -27,17 +27,27 @@ class PerfilImages extends React.Component {
         }).then(res => res.json())
             .then(res => this.setState({
                 Info: res
-                
+
             }))
             .catch(err => { console.log(err) })
+
+        if (this.state.Info.length !== null) {
+            localStorage.setItem('Publicaciones', this.state.Info.length);
+        } else {
+            localStorage.setItem('Publicaciones', 0);
+        }
     }
     async componentDidUpdate() {
-        localStorage.setItem('Publicaciones', this.state.Info.length);
+        if (this.state.Info.length !== null) {
+            localStorage.setItem('Publicaciones', this.state.Info.length);
+        } else {
+            localStorage.setItem('Publicaciones', 0);
+        }
 
-        if(this.state.updatelist) {
+        if (this.state.updatelist) {
             const usuarioLogued = localStorage.getItem('Id_user')
 
-            fetch('http://62.42.95.238:9648/get/userpublicimg'+'?id_user='+usuarioLogued, {
+            fetch('http://62.42.95.238:9648/get/userpublicimg' + '?id_user=' + usuarioLogued, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
@@ -46,18 +56,18 @@ class PerfilImages extends React.Component {
             }).then(res => res.json())
                 .then(res => this.setState({
                     Info: res
-                    
+
                 }))
                 .catch(err => { console.log(err) })
 
-                this.setState({
-                    updatelist: false
-                })  
+            this.setState({
+                updatelist: false
+            })
         }
     }
 
 
-    Selectedpublic (item) {
+    Selectedpublic(item) {
         Swal.fire({
             text: item.Text,
             imageUrl: item.urlImg,
@@ -67,11 +77,11 @@ class PerfilImages extends React.Component {
             showDenyButton: true,
             denyButtonText: 'DELETE',
             showConfirmButton: false
-          }).then ((result) => {
-              if (result.isDenied) {
+        }).then((result) => {
+            if (result.isDenied) {
                 this.DeleteData(item);
-              }
-          })
+            }
+        })
     }
 
     DeleteData = (item) => {
@@ -82,8 +92,8 @@ class PerfilImages extends React.Component {
                 'Content-Type': 'application/json'
             },
         }).then(res => res.text())
-        .then(res => console.log(res) )
-        .catch(err => { console.log(err) })
+            .then(res => console.log(res))
+            .catch(err => { console.log(err) })
 
         this.setState({
             updatelist: true
@@ -104,7 +114,7 @@ class PerfilImages extends React.Component {
                     {this.state.Info.slice(0).reverse().map(item => {
                         return (
                             <div key={item.Id_post} className="card" >
-                                <img id="tamFoto" className="card-img-top" src={item.urlImg} alt={item.urlImg} onClick={() => this.Selectedpublic(item)}/>
+                                <img id="tamFoto" className="card-img-top" src={item.urlImg} alt={item.urlImg} onClick={() => this.Selectedpublic(item)} />
                             </div>
                         );
                     })}

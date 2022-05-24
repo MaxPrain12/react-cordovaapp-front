@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Unity, { UnityContext } from "react-unity-webgl";
 
 class GamePublish extends React.Component {
