@@ -5,7 +5,8 @@ import GamePublish from "../Components/GamePublish";
 import Addpublic from "../Components/Addpublic";
 import FindUser from "../Components/FindUser";
 import ConfigPerf from "../Components/ConfigPerf";
-
+import PerfilSegid from "../Components/PerfilSegid";
+import Coments from "../Components/Coments";
 
 export const MenuItems = [
 
@@ -50,6 +51,19 @@ export const MenuItems = [
     path: '/configperf',
     title: 'Editar Perfil',
     component: ConfigPerf
+  },
+  {
+    id: 8,
+    path: '/Usuariofol',
+    title: 'Usuariofol',
+    component: PerfilSegid
+  },
+  {
+    id: 9,
+    path: '/coments',
+    title: 'Comentarios',
+    component: Coments
   }
+
 
 ];

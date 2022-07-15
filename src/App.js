@@ -1,9 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Headerbar from "./Components/Headerbar";
 import Footerbar from "./Components/Footerbar";
 import { MenuItems } from './Data/MenuItems';
-import "./Style/AppStyle.css"
+import "./Style/AppStyle.css";
+
 
 
 
@@ -12,33 +13,37 @@ export function App() {
     return (
       <Router>
         <Headerbar />
-        {MenuItems.map((item) => {
-          return (
-            <Route
-              key={item.id}
-              path={item.path}
-              exact
-              component={item.component} 
-            />
-          );
-        })}
+        <Routes>
+          
+          {MenuItems.map((item) => {
+            return (
+              <Route
+                key={item.id}
+                path={item.path}
+                element={< item.component />}
+              />
+            );
+          })}
+          
+          
+        </Routes>
         <Footerbar />
       </Router>
     );
   } else {
     return (
       <Router>
-        {MenuItems.map((item) => {
-          return (
-            <Route
+        <Routes>
+          {MenuItems.map((item) => {
+            return (
+              <Route
               key={item.id}
               path={item.path}
-              exact
-              component={item.component}
-
-            />
-          );
-        })}
+              element={< item.component />}
+              />
+            );
+          })}
+        </Routes>
       </Router>
     );
   }

@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
-import { Link } from "react-router-dom";
-import { Offcanvas, Nav } from 'react-bootstrap';
+import { Link, Navigate } from "react-router-dom";
+import { Offcanvas, Nav, Modal } from 'react-bootstrap';
 import PerfilImages from "./PerfilImages";
 import '../Style/Perfilstyle.css'
 import { CMenu } from '../Data/CMenu';
+import '../Style/PefilfollowCon.css';
 
 
 
@@ -14,7 +15,11 @@ class Perfil extends React.Component {
     this.state = {
       Seguidores: '',
       Siguiendo: '',
-      show: false
+      show: false,
+      showModal: false,
+      listFollow: [],
+      listTitle: '',
+      clickUser: false
 
     }
 
@@ -28,7 +33,7 @@ class Perfil extends React.Component {
   async componentDidMount() {
     const usuarioLogued = localStorage.getItem('Id_user')
 
-    fetch('http://62.42.95.238:9648/get/follows' + '?id_user=' + usuarioLogued, {
+    fetch('http://127.0.0.1:9648/get/follows' + '?id_user=' + usuarioLogued, {
       method: 'GET',
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -48,6 +53,64 @@ class Perfil extends React.Component {
   handleShow = () => this.setState({
     show: true,
   });
+
+
+  handleCloseModal = () => {
+
+    this.setState({
+      showModal: false,
+    });
+  }
+  handleShowModalSeguiendo = () => {
+    const usuarioLogued = localStorage.getItem('Id_user')
+
+    fetch('http://127.0.0.1:9648/get/listfollowing' + '?id_user=' + usuarioLogued, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+      .then(res => {
+        this.setState({
+          listFollow: res,
+          listTitle: 'Siguiendo',
+          showModal: true
+        });
+      })
+      .catch(err => { console.log(err) })
+
+
+  }
+  handleShowModalSeguidor = () => {
+    const usuarioLogued = localStorage.getItem('Id_user')
+
+    fetch('http://127.0.0.1:9648/get/listfollowers' + '?id_user=' + usuarioLogued, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+      .then(res => {
+        this.setState({
+          listFollow: res,
+          listTitle: 'Seguidores',
+          showModal: true
+        });
+      })
+      .catch(err => { console.log(err) })
+
+
+  }
+  handleClick = (item) => {
+    localStorage.setItem('UserDat', JSON.stringify(item))
+    this.setState({
+      clickUser: true
+    })
+  }
+
+
 
   render() {
     return (
@@ -78,6 +141,29 @@ class Perfil extends React.Component {
               </ul>
             </Offcanvas.Body>
           </Offcanvas>
+          <Modal show={this.state.showModal} onHide={this.handleCloseModal}>
+            <Modal.Header closeButton>
+              <Modal.Title>{this.state.listTitle}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              {this.state.listFollow &&
+                this.state.listFollow.map((item) => {
+                  return (
+                    <div className='doggelUser1 mt-2' key={item.Id_user} onClick={() => this.handleClick(item)}>
+                      <img src={item.urlImg} alt={item.urlImg} />
+                      <h1>{item.Username}</h1>
+                      <span >
+                        {this.state.clickUser && (
+                          <Navigate to="/Usuariofol" replace={true} />
+                        )}
+                        <ion-icon name="remove-outline" size='large'></ion-icon>
+                        <ion-icon name="chevron-forward-outline" size='large' ></ion-icon>
+                      </span>
+                    </div>
+                  );
+                })}
+            </Modal.Body>
+          </Modal>
           <div className='hubholder'>
             <div className='FollowsCon'>
 
@@ -94,14 +180,14 @@ class Perfil extends React.Component {
                   </li>
 
                   <li className="list-infofw">
-                    <div className='fasW'>
+                    <div className='fasW' onClick={this.handleShowModalSeguidor}>
                       <span className="text-infofw">{this.state.Seguidores}</span>
                       <span className="text-infofw">Seguidores</span>
                     </div>
                   </li>
 
                   <li className="list-infofw">
-                    <div className='fasW'>
+                    <div className='fasW' onClick={this.handleShowModalSeguiendo}>
                       <span className="text-infofw">{this.state.Siguiendo}</span>
                       <span className="text-infofw">Siguiendo</span>
                     </div>
@@ -113,7 +199,8 @@ class Perfil extends React.Component {
             </div>
 
           </div>
-          <PerfilImages />
+
+          <PerfilImages Id_user={localStorage.getItem('Id_user')} />
 
         </div>
 

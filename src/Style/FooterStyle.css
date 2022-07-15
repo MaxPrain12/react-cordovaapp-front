@@ -48,6 +48,7 @@
   width: 100%;
   display: flex;
   padding-left: 0rem;
+  margin: auto;
 
 }
 
@@ -58,7 +59,6 @@
   z-index: 1;
   width: 20%;
   height: 20%;
-  margin-top: 1em;
 }
 
 .navigation ul li #aStyle {
@@ -91,6 +91,7 @@
 
 .navigation ul li.active #aStyle .icon {
   opacity: 0;
+  visibility: hidden;
 }
 
 .navigation ul li #aStyle .text {
@@ -101,6 +102,7 @@
   transition: 00.5s;
   opacity: 0;
   transform: translateY(30px);
+  visibility: hidden;
 
 
 }
@@ -109,7 +111,8 @@
   color: #43C6AC;
   opacity: 1;
   transform: translateY(-2px);
-  
+  visibility: visible;
+
 }
 
 
@@ -124,11 +127,12 @@
 @media only screen and (max-height: 500px) {
 
   .MainFooter {
-
+    opacity: 0;
     visibility: hidden;
   }
 
   .navigation {
+    opacity: 0;
     visibility: hidden;
   }
 
@@ -137,6 +141,7 @@
 
 
 @media only screen and (min-width: 800px) {
+
   /* For tablets: */
   .navigation ul li.active #aStyle .icon {
     opacity: 1;
@@ -144,11 +149,13 @@
     border-radius: 50%;
     border: 0.2em solid #ffffff;
     transform: translateY(-40px);
+    visibility: visible;
   }
+
   .navigation ul li.active #aStyle .text {
     color: #43C6AC;
     opacity: 1;
     transform: translateY(20px);
-    
+
   }
 }

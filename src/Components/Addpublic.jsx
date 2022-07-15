@@ -48,16 +48,32 @@ class Addpublic extends React.Component {
       const ImageDat = this.state.fileS
 
 
-
-      // configuracion de l a compresion
-      const options = {
-        maxSizeMB: 0.5,
-        useWebWorker: true
-      }
+      if (ImageDat.type === 'image/gif') {
 
 
+        const convertedFile = new File([ImageDat], ImageDat.name, { type: ImageDat.type, lastModified: Date.now() })
 
-      Compress(ImageDat, options)
+        formdata.append('image', convertedFile)
+
+
+        fetch('http://127.0.0.1:9648/post/img?id_user=2'  + '&inftexp=' + this.valorDesc.value, {
+          method: 'POST',
+          body: formdata
+        })
+          .then(res => res.text())
+          .then(res => console.log(res))
+          .catch(err => { console.error(err) })
+     
+
+      } else {
+
+        // configuracion de l a compresion
+        const options = {
+          maxSizeMB: 0.5,
+          useWebWorker: true
+        }
+
+        Compress(ImageDat, options)
         .then(compressedBlob => {
 
           const convertedBlobFile = new File([compressedBlob], ImageDat.name, { type: ImageDat.type, lastModified: Date.now() })
@@ -65,25 +81,7 @@ class Addpublic extends React.Component {
           formdata.append('image', convertedBlobFile)
 
 
-
-          const info = {
-
-            Id_user: localStorage.getItem('Id_user'),
-            Text: this.valorDesc.value
-          }
-
-          fetch('http://62.42.95.238:9648/post/inf', {
-            method: 'POST', headers: {
-              'Accept': 'application/json, text/plain, */*',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(info)
-          })
-            .then(res => res.text())
-            .then(res => console.log(res))
-            .catch(err => { console.error(err) })
-
-          fetch('http://62.42.95.238:9648/post/img', {
+          fetch('http://127.0.0.1:9648/post/img?id_user=2'  + '&inftexp=' + this.valorDesc.value, {
             method: 'POST',
             body: formdata
           })
@@ -91,13 +89,20 @@ class Addpublic extends React.Component {
             .then(res => console.log(res))
             .catch(err => { console.error(err) })
 
-         
-          
+
+
 
         })
         .catch(e => {
           Swal.fire("Error", "Error al comprimir el archivo", "error")
         })
+
+
+      }
+
+
+
+
 
 
 
@@ -117,7 +122,7 @@ class Addpublic extends React.Component {
         Swal.showLoading();
       }
     }).then(function (result) {
-      
+
       if (result.dismiss === 'timer') {
         Swal.fire({
           title: 'Publicado Correctamente',
@@ -133,6 +138,8 @@ class Addpublic extends React.Component {
           url: null
         }
       })
+
+
     })
   }
 

@@ -1,0 +1,35 @@
+.doggelUser1 {
+    height: 5em;
+    overflow: hidden;
+    background-color: #43c6ac05;
+    border: 1px solid #191645;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.doggelUser1 h1 {
+    float: left;
+    font-size: 1em;
+    color: #191645;
+    padding-top: 1.8em;
+}
+
+.doggelUser1 img{
+    height: 4em;
+    width: 4em;
+    object-fit: cover;
+    border: 2px solid #43C6AC;
+    border-radius: 50%;
+    float: left;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+.doggelUser1 span{
+    padding-top: 1.5em;
+    float: right;
+    margin: auto;
+    color: #191645;
+}
+.doggelUser1 span:hover{
+    color: #43C6AC;
+}

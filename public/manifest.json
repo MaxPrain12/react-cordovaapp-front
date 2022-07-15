@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "ShotShare",
+  "name": "Shotshare es una aplicación y red social, que permite compartir imágenes con otros usuarios de la aplicación y recibir un feedback del mismo. ",
   "icons": [
     {
       "src": "logoSVG.svg",

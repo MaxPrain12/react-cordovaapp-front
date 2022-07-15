@@ -23,7 +23,7 @@ class ConfigPerf extends React.Component {
     }
 
     async componentDidMount() {
-        fetch('http://62.42.95.238:9648/get/allusername', {
+        fetch('http://127.0.0.1:9648/get/allusername', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -59,14 +59,14 @@ class ConfigPerf extends React.Component {
 
                     const usuarioLogued = localStorage.getItem('Id_user');
 
-                    fetch('http://62.42.95.238:9648/post/imgperf' + '?id_user=' + usuarioLogued, {
+                    fetch('http://127.0.0.1:9648/post/imgperf' + '?id_user=' + usuarioLogued, {
                         method: 'POST',
                         body: formdata
                     })
                         .then(res => res.text())
                         .then(res => {
 
-                            fetch('http://62.42.95.238:9648/get/perfimgch' + '?id_user=' + usuarioLogued, {
+                            fetch('http://127.0.0.1:9648/get/perfimgch' + '?id_user=' + usuarioLogued, {
                                 method: 'GET',
                             })
                                 .then(res => res.json())
@@ -93,7 +93,7 @@ class ConfigPerf extends React.Component {
             } else {
                 const usuarioLo = localStorage.getItem('Id_user');
 
-                fetch('http://62.42.95.238:9648/post/username' + '?id_user=' + usuarioLo + '&username=' + UsernameChage, {
+                fetch('http://127.0.0.1:9648/post/username' + '?id_user=' + usuarioLo + '&username=' + UsernameChage, {
                     method: 'POST',
                 })
                     .then(res => res.text())
@@ -117,7 +117,7 @@ class ConfigPerf extends React.Component {
             } else {
                 const usuarioLo = localStorage.getItem('Id_user');
 
-                fetch('http://62.42.95.238:9648/post/username' + '?id_user=' + usuarioLo + '&username=' + UsernameChage, {
+                fetch('http://127.0.0.1:9648/post/username' + '?id_user=' + usuarioLo + '&username=' + UsernameChage, {
                     method: 'POST',
                 })
                     .then(res => res.text())
@@ -142,14 +142,14 @@ class ConfigPerf extends React.Component {
 
                                     const usuarioLogued = localStorage.getItem('Id_user');
 
-                                    fetch('http://62.42.95.238:9648/post/imgperf' + '?id_user=' + usuarioLogued, {
+                                    fetch('http://127.0.0.1:9648/post/imgperf' + '?id_user=' + usuarioLogued, {
                                         method: 'POST',
                                         body: formdata
                                     })
                                         .then(res => res.text())
                                         .then(res => {
 
-                                            fetch('http://62.42.95.238:9648/get/perfimgch' + '?id_user=' + usuarioLogued, {
+                                            fetch('http://127.0.0.1:9648/get/perfimgch' + '?id_user=' + usuarioLogued, {
                                                 method: 'GET',
                                             })
                                                 .then(res => res.json())

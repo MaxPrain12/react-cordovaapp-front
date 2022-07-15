@@ -7,12 +7,12 @@ import { FooterItems } from '../Data/FooterItems';
 class Footerbar extends React.Component {
 
 
-
     saveColorUbication = (e) => {
         e.target.style.color = '#43C6AC';
     }
 
     componentDidMount() {
+
         const list = document.querySelectorAll('.list');
         function activelink() {
             list.forEach((item) =>
@@ -23,7 +23,6 @@ class Footerbar extends React.Component {
             item.addEventListener('click', activelink));
 
     }
-
     render() {
         if (localStorage.getItem('Username') !== null) {
 
@@ -31,6 +30,7 @@ class Footerbar extends React.Component {
 
             return (
                 <Fragment>
+
                     <div className="navigation">
                         <ul>
                             {FooterItems.map((item) => {
@@ -48,6 +48,8 @@ class Footerbar extends React.Component {
                             {/* <div className="indicator"></div> */}
                         </ul>
                     </div>
+
+
 
                 </Fragment>
             );

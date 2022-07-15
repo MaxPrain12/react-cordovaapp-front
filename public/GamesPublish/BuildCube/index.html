@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | TheCube</title>
+    <title>Unity WebGL Player | TheCatacombsCube</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -20,7 +20,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">TheCube</div>
+        <div id="unity-build-title">TheCatacombsCube</div>
       </div>
     </div>
     <script>
@@ -62,8 +62,8 @@
         frameworkUrl: buildUrl + "/BuildCube.framework.js",
         codeUrl: buildUrl + "/BuildCube.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "TheCube",
+        companyName: "Cube Games",
+        productName: "TheCatacombsCube",
         productVersion: "1.0",
         showBanner: unityShowBanner,
       };
@@ -85,6 +85,7 @@
         canvas.style.width = "960px";
         canvas.style.height = "600px";
       }
+      canvas.style.background = "url('" + buildUrl + "/BuildCube.jpg') center / cover";
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");

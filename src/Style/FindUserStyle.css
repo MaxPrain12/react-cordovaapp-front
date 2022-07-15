@@ -1,0 +1,34 @@
+.doggelUser {
+    height: 5em;
+    overflow: hidden;
+    background-color: #191645;
+    border: 1px solid white;
+    border-radius: 10px 10px 10px 10px;
+}
+.doggelUser h1 {
+    float: left;
+    font-size: 1em;
+    color: white;
+    padding-top: 1.5em;
+}
+
+.doggelUser img{
+    height: 4em;
+    width: 4em;
+    object-fit: cover;
+    border: 4px solid #43C6AC;
+    border-radius: 50%;
+    float: left;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+.doggelUser span{
+    padding-top: 1.5em;
+    float: right;
+    margin: auto;
+    color: white;
+}
+.doggelUser span:hover{
+    color: #43C6AC;
+}

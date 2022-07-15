@@ -1,0 +1,100 @@
+.nota {
+    background-color: white;
+}
+
+.footerContentpubli {
+    border-bottom: 2px solid rgba(129, 129, 129, 0.295)
+}
+
+.headerpublifoto h1 {
+    float: left;
+    font-size: 1em;
+    color: #191645;
+    padding-top: 1.45em;
+}
+
+.likes {
+    height: 2em;
+}
+
+.likes h4 {
+    float: left;
+    font-size: 1em;
+    color: #191645;
+    padding-top: 0.2em;
+    margin-left: 1em;
+    margin-right: 0.2em;
+}
+
+.Usertext {
+    height: 3em;
+}
+
+.Usertext h4 {
+    float: left;
+    font-size: 1em;
+    color: #191645;
+    margin-left: 1em;
+    margin-right: 0.2em;
+
+}
+
+.Usertext p {
+    font-size: 1em;
+    color: #191645;
+}
+
+
+.headerpublifoto img {
+    height: 3em;
+    width: 3em;
+    object-fit: cover;
+    border: 2px solid #43C6AC;
+    border-radius: 50%;
+    float: left;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.mainFotoPubli img {
+    height: auto;
+    width: 100%;
+}
+
+.iconsStyling {
+    padding-top: 0.2em;
+}
+
+.heartstyle {
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+.chatstyle {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+
+
+@media only screen and (min-width: 600px) {
+
+    /* For desktop: */
+    .divParacentrar {
+        width: 30%;
+        margin: auto;
+    }
+
+    .nota {
+        border-radius: 8px;
+        border: 2px solid rgba(129, 129, 129, 0.295);
+        margin-bottom: 2em;
+
+    }
+
+    .footerContentpubli {
+        border-bottom: none;
+    }
+}

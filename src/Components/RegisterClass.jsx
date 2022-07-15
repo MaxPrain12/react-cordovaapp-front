@@ -50,7 +50,7 @@ class RegisterClass extends React.Component {
             } else {
 
 
-                fetch('http://62.42.95.238:9648/register', {
+                fetch('http://127.0.0.1:9648/register', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json, text/plain, */*',
@@ -71,6 +71,7 @@ class RegisterClass extends React.Component {
 
 
                         Swal.fire("Good job!", this.state.Sinfo, "success");
+                        window.location.replace('/')
 
 
                     } else if (this.state.Sstatus === 500) {

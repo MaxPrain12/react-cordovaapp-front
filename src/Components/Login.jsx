@@ -4,14 +4,15 @@ import Swal from 'sweetalert2';
 import '../Style/LoginStyle.css';
 import Footerbar from "./Footerbar";
 import logo from '../Image/logoSVG.svg';
-
+import HomeAllPublic from '../Components/HomeAllPublic';
 
 
 
 
 class Login extends React.Component {
-
-
+  constructor(props) {
+    super(props);
+  }
 
 
   handleSubmit = (event) => {
@@ -28,14 +29,14 @@ class Login extends React.Component {
 
     } else {
 
-      const regex = 
+      const regex =
         /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
       if (!info.Email || regex.test(info.Email) === false) {
         Swal.fire("Aviso", "Correo electronico no valido", "warning");
       } else {
 
-        fetch('http://62.42.95.238:9648/login', {
+        fetch('http://127.0.0.1:9648/login', {
           method: 'POST',
           headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -82,12 +83,7 @@ class Login extends React.Component {
     if (localStorage.getItem('Username') !== null) {
 
       return (
-
-        <Container className="mt-5" fluid="lg" >
-
-          <h1>{localStorage.getItem('Username')}</h1>
-
-        </Container>
+        <HomeAllPublic />
       );
 
 
@@ -95,7 +91,7 @@ class Login extends React.Component {
 
       return (
         <div>
-          <img src={logo} alt='logo' id='logoLogin'/>
+          <img src={logo} alt='logo' id='logoLogin' />
           <Container className="mt-5" id="LoginS">
             <Form >
               <Form.Group className="mb-3" controlId="formBasicEmail">
